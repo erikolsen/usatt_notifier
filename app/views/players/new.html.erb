@@ -1,5 +1,15 @@
-<h1>New Player</h1>
+<div>
+  <h1>Gather info</h1>
+  <ol>
+    <li><a href='https://ifttt.com/'>Set up IFTTT account</a></li>
+    <Li>Create new applet using maker for 'if' and 'notification' for 'that'</li>
+    <li>For maker use 'rating_change' as the event name</li>
+    <li>For notifiction copy this: <strong>Rating change from {{Value1}} to {{Value2}}!</strong> into your notification box.</li>
+    <li><a href='https://ifttt.com/services/maker/settings'>Copy your maker url into form</a></li>
+    <li><a href='https://usatt.simplycompete.com/userAccount/s'>Find your USATT profile page and copy your url into form</a></li>
+</div>
+<div>
+  <h1>New Player Info</h1>
+  <%= render 'form' %>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', players_path %>

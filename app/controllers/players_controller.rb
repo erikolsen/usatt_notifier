@@ -10,6 +10,10 @@ class PlayersController < ApplicationController
   # GET /players/1
   # GET /players/1.json
   def show
+    new_rating = RatingFinder.new(@player.profile_page).rating
+    if @player.rating != new_rating
+      RatingNotifier.new(@player.maker_url).notify!({'value1' => @player.rating, 'value2' => new_rating})
+    end
   end
 
   # GET /players/new
@@ -25,10 +29,13 @@ class PlayersController < ApplicationController
   # POST /players.json
   def create
     @player = Player.new(player_params)
+    new_rating = RatingFinder.new(@player.profile_page).rating
+    RatingNotifier.new(@player.maker_url).notify!({'value1' => '0', 'value2' => new_rating})
+    @player.rating = new_rating
 
     respond_to do |format|
       if @player.save
-        format.html { redirect_to @player, notice: 'Player was successfully created.' }
+        format.html { redirect_to @player, notice: "Player was successfully created with rating #{@player.rating}." }
         format.json { render :show, status: :created, location: @player }
       else
         format.html { render :new }

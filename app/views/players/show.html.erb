@@ -2,12 +2,12 @@
 
 <p>
   <strong>Maker url:</strong>
-  <%= @player.maker_url %>
+  <a href="#{<%= @player.maker_url %>}">Maker URL</a>
 </p>
 
 <p>
   <strong>Profile page:</strong>
-  <%= @player.profile_page %>
+  <a href="#{<%= @player.profile_page %>}">Profile Page</a>
 </p>
 
 <p>
@@ -15,5 +15,3 @@
   <%= @player.rating %>
 </p>
 
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
