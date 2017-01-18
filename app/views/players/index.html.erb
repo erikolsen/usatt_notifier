@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>Maker url</th>
       <th>Profile page</th>
       <th>Rating</th>
       <th colspan="3"></th>
@@ -15,12 +14,9 @@
   <tbody>
     <% @players.each do |player| %>
       <tr>
-        <td><%= player.maker_url %></td>
-        <td><%= player.profile_page %></td>
+        <td><a href="<%= player.profile_page %>">Profile</a></td>
         <td><%= player.rating %></td>
         <td><%= link_to 'Show', player %></td>
-        <td><%= link_to 'Edit', edit_player_path(player) %></td>
-        <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
