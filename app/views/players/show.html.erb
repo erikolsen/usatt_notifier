@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Maker url:</strong>
+  <%= @player.maker_url %>
+</p>
+
+<p>
+  <strong>Profile page:</strong>
+  <%= @player.profile_page %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @player.rating %>
+</p>
+
+<%= link_to 'Edit', edit_player_path(@player) %> |
+<%= link_to 'Back', players_path %>
